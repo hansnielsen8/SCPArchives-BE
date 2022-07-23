@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 
 // this is basic for now, more can be decided on and added to later
-const SCPSchema = new mongoose.Schema({
+const scpSchema = new mongoose.Schema({
     id: {
         type: Number,
         required: true,
@@ -25,7 +25,7 @@ const SCPSchema = new mongoose.Schema({
         required: true
     },
     image: {
-        type: Image,
+        type: String,
         // here is another spot I would like to later add a default image if one is not added
         required: false
     },
@@ -40,4 +40,4 @@ const SCPSchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('SCP', SCPSchema)
+module.exports = mongoose.model('SCP', scpSchema)
