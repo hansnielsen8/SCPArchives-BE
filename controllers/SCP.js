@@ -18,7 +18,7 @@ router.get('/scp', async (req, res) => {
     }
 })
 
-// indiviual scp page, page you are taken to when you select one of SCPs from the archive page. not yet tested
+// indiviual scp page, page you are taken to when you select one of SCPs from the archive page, tested and works
 router.get('/scp/:id', async (req, res) => {
     try {
         const { id } = req.params
@@ -30,7 +30,7 @@ router.get('/scp/:id', async (req, res) => {
     }
 })
 
-// delete SCP entry, not yet tested
+// delete SCP entry, tested and works
 router.delete('/scp/:id', async (req, res) => {
     try {
         const { id } = req.params
@@ -42,7 +42,34 @@ router.delete('/scp/:id', async (req, res) => {
     }
 })
 
-// SCP create page labeled roughly "New Archive Entry", not yet tested
+//Edit, Still needs testing 
+
+router.get('/scp/:id/edit', (req, res) => {
+    try {
+        const { id } = req.params
+        const scp = await SCP.findById({ id })
+        res.json(scp.req.body)
+
+    } catch (error) {
+        res.status(500).json({ "message": "error finding SCP entry update" })
+    }
+
+})
+
+
+router.put('/scp/:id', (req, res) => {
+    try {
+        const { id } = req.params
+        const scp = await SCP.findByIdAndUpdate({ id }, req.body)
+        res.redirect('/scp/:id')
+
+    } catch (error) {
+        res.status(500).json({ "message": "error updating SCP entry" })
+    }
+})
+
+
+// SCP create page labeled roughly "New Archive Entry", tested and works
 router.post('/new_entry', async (req, res) => {
     try {
         const { id, name, location, date, image, description, containment } = req.body
