@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
 // scp list page named "SCP Archive", tested and works
 router.get('/scp', async (req, res) => {
     try {
-        const SCPs = await SCP.find().populate('SCP')
+        const SCPs = await SCP.find()
 
         res.json(SCPs)
     } catch (error) {
