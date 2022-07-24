@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 
+//const classified = require('../public/Classified')
 
 // this is basic for now, more can be decided on and added to later
 const scpSchema = new mongoose.Schema({
@@ -27,7 +28,8 @@ const scpSchema = new mongoose.Schema({
     image: {
         type: String,
         // here is another spot I would like to later add a default image if one is not added
-        required: false
+        required: false,
+        default: '../public/Classified'
     },
     description: {
         type: String,
@@ -36,7 +38,8 @@ const scpSchema = new mongoose.Schema({
     contaiment: {
         type: String,
         // if contaiment is not chosen we should have it default to something like "no known method of containment" or we can make it require. not sure yet.
-        required: false
+        required: false,
+        default: 'No current known method to contain.'
     }
 })
 
