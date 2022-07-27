@@ -11,7 +11,7 @@ const app = express()
 app.use(express.json())
 
 // BADNESS
-app.use(cors({origin: ["*"]}))
+app.use(cors())
 
 // midwives
 
