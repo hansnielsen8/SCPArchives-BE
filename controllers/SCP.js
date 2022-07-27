@@ -44,7 +44,7 @@ router.delete('/scp/:id', async (req, res) => {
 
 //Edit, Still needs testing 
 
-router.get('/scp/:id/edit', (req, res) => {
+router.get('/scp/:id/edit', async (req, res) => {
     try {
         const { id } = req.params
         const scp = await SCP.findById({ id })
@@ -57,7 +57,7 @@ router.get('/scp/:id/edit', (req, res) => {
 })
 
 
-router.put('/scp/:id', (req, res) => {
+router.put('/scp/:id', async (req, res) => {
     try {
         const { id } = req.params
         const scp = await SCP.findByIdAndUpdate({ id }, req.body)
