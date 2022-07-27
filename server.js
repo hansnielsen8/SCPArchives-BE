@@ -1,9 +1,10 @@
 // Depends (for men)
+require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
 const scpRoutes = require('./controllers/SCP')
 const cors = require('cors')
-require('dotenv').config()
+
 
 const app = express()
 
