@@ -2,13 +2,13 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const scpRoutes = require('./controllers/SCP')
-require('cors').config()
+const cors = require('cors')
 require('dotenv').config()
 
 const app = express()
 
 // BADNESS
-app.use(cors())
+app.use(cors("*"))
 
 // midwives
 app.use(express.json())
