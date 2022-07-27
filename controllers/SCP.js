@@ -12,7 +12,7 @@ router.get('/scp', async (req, res) => {
     try {
         const SCPs = await SCP.find()
 
-        res.json(SCPs)
+        res.status(200).json(SCPs)
     } catch (error) {
         res.status(500).json({ "message": "error accessing SCP archives" })
     }
@@ -24,7 +24,7 @@ router.get('/scp/:id', async (req, res) => {
         const { id } = req.params
         const scp = await SCP.findOne({ id })
 
-        res.json(scp)
+        res.status(200).json(scp)
     } catch (error) {
         res.status(500).json({ "message": "error accessing SCP entry" })
     }
@@ -36,20 +36,19 @@ router.delete('/scp/:id', async (req, res) => {
         const { id } = req.params
         const scp = await SCP.findOneAndDelete({ id })
 
-        res.json(scp)
+        res.status(200).json(scp)
     } catch (error) {
         res.status(500).json({ "message": "error deleting SCP entry" })
     }
 })
 
 //Edit, Still needs testing 
-
 router.get('/scp/:id/edit', async (req, res) => {
     try {
         const { id } = req.params
         const scp = await SCP.findById({ id })
-        res.json(scp.req.body)
 
+        res.status(200).json(scp)
     } catch (error) {
         res.status(500).json({ "message": "error finding SCP entry update" })
     }
@@ -61,8 +60,8 @@ router.put('/scp/:id', async (req, res) => {
     try {
         const { id } = req.params
         const scp = await SCP.findByIdAndUpdate({ id }, req.body)
-        res.redirect('/scp/:id')
 
+        res.status(300).redirect('/scp/:id')
     } catch (error) {
         res.status(500).json({ "message": "error updating SCP entry" })
     }
@@ -84,7 +83,7 @@ router.post('/new_entry', async (req, res) => {
             containment
         }).save()
 
-        res.json({ 'message': 'New SCP entry added'})
+        res.status(200).json({ 'message': 'New SCP entry added'})
     } catch (error) {
         res.status(400).json({ "message": "error adding SCP entry" })
     }

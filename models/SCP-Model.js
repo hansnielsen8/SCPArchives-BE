@@ -29,13 +29,13 @@ const scpSchema = new mongoose.Schema({
         type: String,
         // here is another spot I would like to later add a default image if one is not added
         required: false,
-        default: '../public/Classified'
+        // default: '../public/Classified'
     },
     description: {
         type: String,
         required: true
     },
-    contaiment: {
+    containment: {
         type: String,
         // if contaiment is not chosen we should have it default to something like "no known method of containment" or we can make it require. not sure yet.
         required: false,
