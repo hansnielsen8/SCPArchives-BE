@@ -8,11 +8,13 @@ const cors = require('cors')
 
 const app = express()
 
+app.use(express.json())
+
 // BADNESS
 app.use(cors({origin: ["*"]}))
 
 // midwives
-app.use(express.json())
+
 
 // routes
 app.use('/', scpRoutes)
