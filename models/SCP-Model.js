@@ -29,7 +29,7 @@ const scpSchema = new mongoose.Schema({
         type: String,
         // here is another spot I would like to later add a default image if one is not added
         required: false,
-        // default: '../public/Classified'
+        default: 'https://images.unsplash.com/photo-1504711331083-9c895941bf81?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'
     },
     description: {
         type: String,
