@@ -1,5 +1,7 @@
 const mongoose = require('mongoose')
 
+const defaultImage = 'https://images.unsplash.com/photo-1504711331083-9c895941bf81?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'
+
 //const classified = require('../public/Classified')
 
 // this is basic for now, more can be decided on and added to later
@@ -29,7 +31,7 @@ const scpSchema = new mongoose.Schema({
         type: String,
         // here is another spot I would like to later add a default image if one is not added
         required: false,
-        default: 'https://images.unsplash.com/photo-1504711331083-9c895941bf81?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'
+        default: defaultImage
     },
     description: {
         type: String,
