@@ -51,7 +51,7 @@ router.delete('/scp/:id', async (req, res) => {
 router.get('/scp/:id/edit', async (req, res) => {
     try {
         const { id } = req.params
-        const scp = await SCP.findById({ id })
+        const scp = await SCP.findById(id)
 
         res.status(200).json(scp)
     } catch (error) {
