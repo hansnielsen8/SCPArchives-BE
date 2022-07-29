@@ -7,6 +7,11 @@ router.get('/', (req, res) => {
     res.send('Home!')
 })
 
+// News route
+router.get('/news', (req, res) => {
+    res.send('READ ALL ABOUT IT!')
+})
+
 // scp list page named "SCP Archive", tested and works
 router.get('/scp', async (req, res) => {
     try {
