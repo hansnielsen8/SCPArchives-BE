@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 
+
 //const classified = require('../public/Classified')
 
 // this is basic for now, more can be decided on and added to later
@@ -13,7 +14,8 @@ const scpSchema = new mongoose.Schema({
         type: String,
         // I would like to add a default later on if there is no normalized name for the SCP, such as "unkown" or "no current designation"
         required: false,
-        unique: true
+        unique: false,
+        default: 'No current designation'
     },
     location: {
         // would like to later make this section have a proper location format
