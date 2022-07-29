@@ -65,7 +65,7 @@ router.put('/scp/:id', async (req, res) => {
     try {
         const { id } = req.params
         const { name, location, date, image, description, containment } = req.body
-        await SCP.findByIdAndUpdate(id, req.body)
+        await SCP.findByIdAndUpdate({ id }, req.body)
 
         res.status(300).redirect(`/scp/${req.params.id}`)
     } catch (error) {
