@@ -41,7 +41,7 @@ router.delete('/scp/:id', async (req, res) => {
         const { id } = req.params
         const scp = await SCP.findOneAndDelete({ id })
 
-        res.status(200).json(scp)
+        res.status(200).redirect('/scp')
     } catch (error) {
         res.status(500).json({ "message": "error deleting SCP entry" })
     }
