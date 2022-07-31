@@ -61,7 +61,7 @@ router.get('/scp/:id/edit', async (req, res) => {
 })
 
 
-router.put('/scp/:id', async (req, res) => {
+router.patch('/scp/:id', async (req, res) => {
     try {
         const { id } = req.params
         const { name, location, date, image, description, containment } = req.body
