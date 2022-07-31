@@ -64,10 +64,9 @@ router.get('/scp/:id/edit', async (req, res) => {
 router.put('/scp/:id', async (req, res) => {
     try {
         const { id } = req.params
-        const { name, location, date, image, description, containment } = req.body
-        await SCP.findByIdAndUpdate({ id }, req.body)
+        const result = await SCP.findOneAndUpdate({ id }, req.body, {new:true})
 
-        res.status(300).redirect(`/scp/${req.params.id}`)
+        res.status(202).json(result)
     } catch (error) {
         res.status(500).json({ "message": "error updating SCP entry" })
     }
